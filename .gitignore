@@ -1,0 +1,58 @@
+# ====== Python ======
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ====== 虚拟环境 ======
+venv/
+.venv/
+env/
+ENV/
+
+# ====== 环境变量与密钥 ======
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# ====== 数据库与本地状态 ======
+*.db
+*.sqlite
+*.sqlite3
+data/
+
+# ====== IDE / 编辑器 ======
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# ====== 测试与覆盖率 ======
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# ====== 工具缓存 ======
+.playwright-cli/
+.mypy_cache/
+.ruff_cache/
+
+# ====== 调试产物（截图、日志、快照） ======
+*.png
+*.jpg
+chat_output.txt
+ui_log.txt
+chat_snap.yaml
+
+# ====== 操作系统 ======
+Thumbs.db
+desktop.ini
