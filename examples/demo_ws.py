@@ -60,7 +60,7 @@ async def demo():
     # ── 创建记忆 Agent（被调用方）──
     print("\n[创建] 记忆 Agent...")
     memory = AgentServer(
-        agent_id="agent://mem0.dev/memory-service",
+        agent_id="peermind://mem0.dev/memory-service",
         agent_type="organization",
         display_name="记忆服务Agent",
         port=MEMORY_PORT,
@@ -97,7 +97,7 @@ async def demo():
     # ── 创建导航 Agent（调用方）──
     print("[创建] 导航 Agent...")
     navi = AgentServer(
-        agent_id="agent://volkswagen.com/navi",
+        agent_id="peermind://volkswagen.com/navi",
         agent_type="organization",
         display_name="大众导航Agent",
         port=NAVI_PORT,
@@ -139,7 +139,7 @@ async def demo():
 
     # 建立 WebSocket 连接
     print("\n[WS] 导航Agent 建立 WebSocket 连接到记忆Agent...")
-    ws = await navi.connect_ws("agent://mem0.dev/memory-service")
+    ws = await navi.connect_ws("peermind://mem0.dev/memory-service")
 
     # 验证握手状态
     print("  握手: ✅ 通过（身份验签成功）")

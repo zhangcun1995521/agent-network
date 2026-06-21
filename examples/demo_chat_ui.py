@@ -344,14 +344,14 @@ async def run_chat():
             # 发送消息
             if sender_name == "Alice":
                 msg, reply = await alice.send_message(
-                    to_agent="agent://chat-demo.com/bob",
+                    to_agent="peermind://chat-demo.com/bob",
                     intent="chat",
                     payload={"text": text},
                     return_reply=True,
                 )
             else:
                 msg, reply = await bob.send_message(
-                    to_agent="agent://chat-demo.com/alice",
+                    to_agent="peermind://chat-demo.com/alice",
                     intent="chat",
                     payload={"text": text},
                     return_reply=True,
@@ -406,7 +406,7 @@ async def main():
     # ── 创建 Agent ──
     print("\n[创建] 两个 Agent 实例...")
     alice = AgentServer(
-        agent_id="agent://chat-demo.com/alice",
+        agent_id="peermind://chat-demo.com/alice",
         agent_type="user",
         display_name="Alice",
         port=ALICE_PORT,
@@ -414,7 +414,7 @@ async def main():
         capabilities=[Capability(skill="chat", description="日常闲聊")],
     )
     bob = AgentServer(
-        agent_id="agent://chat-demo.com/bob",
+        agent_id="peermind://chat-demo.com/bob",
         agent_type="user",
         display_name="Bob",
         port=BOB_PORT,

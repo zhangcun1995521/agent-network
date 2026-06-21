@@ -57,7 +57,7 @@ async def demo():
     print("\n[创建] 两个 Agent 实例...")
 
     navi = AgentServer(
-        agent_id="agent://volkswagen.com/navi",
+        agent_id="peermind://volkswagen.com/navi",
         agent_type="organization",
         display_name="大众导航Agent",
         port=NAVI_PORT,
@@ -72,7 +72,7 @@ async def demo():
     print(f"    端口: {NAVI_PORT}")
 
     memory = AgentServer(
-        agent_id="agent://mem0.dev/memory-service",
+        agent_id="peermind://mem0.dev/memory-service",
         agent_type="organization",
         display_name="记忆服务Agent",
         port=MEMORY_PORT,
@@ -142,7 +142,7 @@ async def demo():
     # 导航Agent → 记忆Agent（P2P 直连，不经过 Registry）
     print("\n[P2P] 导航Agent → 记忆Agent（直连，不经过 Registry）")
     msg1 = await navi.send_message(
-        to_agent="agent://mem0.dev/memory-service",
+        to_agent="peermind://mem0.dev/memory-service",
         intent="skill_request",
         payload={
             "skill": "memory_search",
@@ -152,7 +152,7 @@ async def demo():
         },
     )
     print(f"  消息ID: {msg1.id}")
-    print(f"  路径: agent://volkswagen.com/navi → agent://mem0.dev/memory-service")
+    print(f"  路径: peermind://volkswagen.com/navi → peermind://mem0.dev/memory-service")
     print(f"  途经: 无中间节点，直接 POST 到 {MEMORY_PORT} 端口")
     print(f"  意图: {msg1.intent}")
     print(f"  载荷: {msg1.payload}")

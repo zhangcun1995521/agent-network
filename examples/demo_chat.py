@@ -73,7 +73,7 @@ async def demo():
     print("\n[创建] 两个 Agent 实例...")
 
     alice = AgentServer(
-        agent_id="agent://chat-demo.com/alice",
+        agent_id="peermind://chat-demo.com/alice",
         agent_type="user",
         display_name="Alice",
         port=ALICE_PORT,
@@ -85,7 +85,7 @@ async def demo():
     )
 
     bob = AgentServer(
-        agent_id="agent://chat-demo.com/bob",
+        agent_id="peermind://chat-demo.com/bob",
         agent_type="user",
         display_name="Bob",
         port=BOB_PORT,

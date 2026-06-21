@@ -36,7 +36,7 @@ async def demo():
 
         # 注册导航Agent
         r = await client.post(f"{BASE_URL}/agents/register", json={
-            "agent_id": "agent://volkswagen.com/navi",
+            "agent_id": "peermind://volkswagen.com/navi",
             "agent_type": "organization",
             "display_name": "大众导航Agent",
             "public_key": navi_pub,
@@ -51,7 +51,7 @@ async def demo():
 
         # 注册记忆服务Agent
         r = await client.post(f"{BASE_URL}/agents/register", json={
-            "agent_id": "agent://mem0.dev/memory-service",
+            "agent_id": "peermind://mem0.dev/memory-service",
             "agent_type": "organization",
             "display_name": "记忆服务Agent",
             "public_key": memory_pub,
@@ -97,8 +97,8 @@ async def demo():
 
         # Agent A → Agent B：请求记忆搜索
         r = await client.post(f"{BASE_URL}/messages", json={
-            "from": "agent://volkswagen.com/navi",
-            "to": "agent://mem0.dev/memory-service",
+            "from": "peermind://volkswagen.com/navi",
+            "to": "peermind://mem0.dev/memory-service",
             "intent": "skill_request",
             "payload": {
                 "skill": "memory_search",
@@ -116,8 +116,8 @@ async def demo():
 
         # Agent B → Agent A：回复
         r = await client.post(f"{BASE_URL}/messages", json={
-            "from": "agent://mem0.dev/memory-service",
-            "to": "agent://volkswagen.com/navi",
+            "from": "peermind://mem0.dev/memory-service",
+            "to": "peermind://volkswagen.com/navi",
             "intent": "skill_response",
             "payload": {
                 "result": "用户偏好温度: 22°C",
@@ -155,7 +155,7 @@ async def demo():
         print("=" * 60)
 
         r = await client.get(f"{BASE_URL}/messages/inbox", params={
-            "agent_id": "agent://mem0.dev/memory-service",
+            "agent_id": "peermind://mem0.dev/memory-service",
         })
         inbox = r.json()
         print(f"[记忆Agent] 收件箱中有 {len(inbox)} 条消息:")
@@ -163,7 +163,7 @@ async def demo():
             print(f"  - 来自 {msg['from_agent']}: {msg['intent']}")
 
         r = await client.get(f"{BASE_URL}/messages/inbox", params={
-            "agent_id": "agent://volkswagen.com/navi",
+            "agent_id": "peermind://volkswagen.com/navi",
         })
         inbox = r.json()
         print(f"\n[导航Agent] 收件箱中有 {len(inbox)} 条消息:")

@@ -157,7 +157,7 @@ async def main():
     print("\n[2/5] 创建 Alice 和 Bob (带 DeepSeek 大脑)...")
 
     alice = AgentServer(
-        agent_id="agent://chat-demo.com/alice",
+        agent_id="peermind://chat-demo.com/alice",
         agent_type="user",
         display_name="Alice (UI设计师)",
         port=ALICE_PORT,
@@ -165,7 +165,7 @@ async def main():
         capabilities=[Capability(skill="chat", description="智能对话")],
     )
     bob = AgentServer(
-        agent_id="agent://chat-demo.com/bob",
+        agent_id="peermind://chat-demo.com/bob",
         agent_type="user",
         display_name="Bob (后端程序员)",
         port=BOB_PORT,
