@@ -7,16 +7,15 @@ Agent 通信网络 - 聊天 UI Demo
   Alice (:9001) ←── P2P 直连 ──→ Bob (:9002)
                     ↑                   ↑
                     └── SSE 推送 ──→ Web UI (:8080)
+
+注意：必须从仓库根目录运行：python -m examples.demo_chat_ui
 """
 import asyncio
 import json
-import sys
 import threading
 import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, StreamingResponse
-
-sys.path.insert(0, ".")
 
 from agent_network.main import app as registry_app, init_db
 from agent_network.agent_server import AgentServer

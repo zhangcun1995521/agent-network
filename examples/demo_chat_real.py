@@ -13,6 +13,9 @@ Agent 通信网络 - 真实 LLM 对话 Demo
 和之前版本的关键区别：
   之前：CHAT_SCRIPT = ["你好", "我想吃...", ...]  ← 预设剧本
   现在：agent.think(收到的内容) → DeepSeek 生成 → 真正的对话
+
+注意：必须从仓库根目录运行：python -m examples.demo_chat_real
+需要环境变量：DEEPSEEK_API_KEY
 """
 import asyncio
 import httpx
@@ -20,8 +23,6 @@ import os
 import sys
 import threading
 import uvicorn
-
-sys.path.insert(0, ".")
 
 from agent_network.main import app as registry_app, init_db
 from agent_network.agent_server import AgentServer

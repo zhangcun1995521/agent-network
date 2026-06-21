@@ -11,15 +11,14 @@ Agent 通信网络 - WebSocket 长连接 Demo
   Agent 导航 (8001) ── WS 长连接 ──  Agent 记忆 (8002)
        ↑                                    ↑
        ws://127.0.0.1:8002/ws                /ws 端点
+
+注意：必须从仓库根目录运行：python -m examples.demo_ws
 """
 import asyncio
 import httpx
 import json
-import sys
 import threading
 import uvicorn
-
-sys.path.insert(0, ".")
 
 from agent_network.main import app as registry_app, init_db
 from agent_network.agent_server import AgentServer

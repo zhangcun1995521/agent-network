@@ -43,8 +43,9 @@ agent-network/
 │   ├── demo_ws.py           # WebSocket 网关
 │   ├── demo_chat_*.py       # 聊天场景
 │   └── demo_codebuddy_*.py  # CodeBuddy 适配器示例
+├── tools/                   # 辅助工具（非协议核心）
+│   └── openclaw/            # OpenClaw Gateway 集成脚本
 ├── tests/                   # 测试
-├── approve_device.py        # 设备配对工具
 └── requirements.txt
 ```
 
@@ -71,12 +72,9 @@ export DEEPSEEK_API_KEY=sk-xxxxx
 python -m examples.demo_chat_real
 ```
 
-### 4. 设备配对（连接 Gateway）
+### 4. OpenClaw Gateway 配对（可选，非协议核心）
 
-```bash
-export AGENT_NETWORK_TOKEN=你的token
-python approve_device.py
-```
+见 [`tools/openclaw/`](tools/openclaw/) 目录。
 
 ## 当前状态
 

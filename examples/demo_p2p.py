@@ -7,14 +7,13 @@ Agent 通信网络 P2P 直连 Demo
   Agent 导航 (8001) ──── 直连消息 ────  Agent 记忆 (8002)
        ↑                                       ↑
        各自暴露 POST /agent/v1 接收消息，验签后处理
+
+注意：必须从仓库根目录运行：python -m examples.demo_p2p
 """
 import asyncio
 import httpx
-import sys
 import threading
 import uvicorn
-
-sys.path.insert(0, ".")
 
 from agent_network.main import app as registry_app, init_db
 from agent_network.agent_server import AgentServer

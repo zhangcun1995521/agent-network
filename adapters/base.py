@@ -2,10 +2,11 @@
 AgentAdapter 基类
 每个外部工具（CodeBuddy、Claude Code、OpenClaw）继承此类，
 统一处理 PeerMind 注册、消息路由和技能分发。
+
+注意：本模块依赖 agent_network 包，必须从仓库根目录用 `python -m` 运行，
+例如 `python -m examples.demo_codebuddy_adapter`。
 """
-import sys
 import asyncio
-sys.path.insert(0, "D:/projects/agent-network")
 
 from agent_network.agent_server import AgentServer  # P2P 通信服务端
 from agent_network.models import Capability, AgentMessage  # 数据模型

@@ -9,14 +9,13 @@ Agent 通信网络 - 多轮对话 Demo
 关键机制：
   send_message(return_reply=True) → (消息, 对方回复)
   利用这个返回值可以看到真实的 Agent-to-Agent 通信
+
+注意：必须从仓库根目录运行：python -m examples.demo_chat
 """
 import asyncio
 import httpx
-import sys
 import threading
 import uvicorn
-
-sys.path.insert(0, ".")
 
 from agent_network.main import app as registry_app, init_db
 from agent_network.agent_server import AgentServer

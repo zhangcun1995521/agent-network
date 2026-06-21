@@ -1,10 +1,10 @@
 """
 CodeBuddy Adapter：把 CodeBuddy 注册为 PeerMind agent
 通过 subprocess 调用 codebuddy CLI 执行代码任务
+
+注意：本模块依赖 agent_network 包，必须从仓库根目录用 `python -m` 运行。
 """
-import sys
 import subprocess
-sys.path.insert(0, "D:/projects/agent-network")
 
 from adapters.base import AgentAdapter  # 继承基类
 
@@ -129,7 +129,7 @@ class CodeBuddyAdapter(AgentAdapter):
                 capture_output=True,
                 text=True,
                 timeout=120,
-                cwd="D:/projects/agent-network",
+                cwd=".",  # 用调用者的当前工作目录
                 shell=True,
             )
             if proc.returncode != 0:

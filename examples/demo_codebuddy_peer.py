@@ -28,8 +28,6 @@ import threading
 import time
 import os
 
-sys.path.insert(0, "D:/projects/agent-network")
-
 # ── 分段演示辅助 ──
 def wait(txt, seconds=3):
     """打印提示后暂停，让用户能看到过程"""

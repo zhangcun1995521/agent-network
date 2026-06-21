@@ -1,11 +1,11 @@
 """
 Agent 通信网络 Demo
 演示两个 Agent 的注册、发现、通信全流程
+
+注意：必须从仓库根目录运行：python -m examples.demo
 """
 import httpx
 import asyncio
-import sys
-sys.path.insert(0, ".")
 
 from agent_network.crypto import generate_keypair, build_message_bytes, sign_message, verify_signature
 

@@ -18,18 +18,18 @@ PeerMind 聊天网络 - 三人 P2P 实时聊天
   - 你作为正式 PeerMind Agent 参与，有身份 + Ed25519 密钥
   - 三人轮转：Alice → Bob → 你 → Alice → ...
   - 你的消息走完整 P2P 链路（签名 + 验证）
+
+注意：必须从仓库根目录运行：python -m examples.demo_chat_ui_real
+需要环境变量：DEEPSEEK_API_KEY
 """
 import asyncio
 import httpx
 import json
 import os
-import sys
 import threading
 import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, StreamingResponse
-
-sys.path.insert(0, ".")
 
 from agent_network.main import app as registry_app, init_db
 from agent_network.agent_server import AgentServer

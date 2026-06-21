@@ -21,8 +21,6 @@ import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, StreamingResponse
 
-sys.path.insert(0, "D:/projects/agent-network")
-
 from agent_network.main import app as registry_app, init_db
 from agent_network.agent_server import AgentServer
 from agent_network.models import Capability, AgentMessage

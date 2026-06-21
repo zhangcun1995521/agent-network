@@ -22,8 +22,6 @@ import asyncio
 import uvicorn
 import threading
 
-sys.path.insert(0, "D:/projects/agent-network")
-
 from agent_network.main import app as registry_app, init_db  # Registry 入口
 from agent_network.agent_server import AgentServer            # P2P 通信
 from agent_network.models import Capability                   # 数据模型
